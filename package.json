@@ -1,0 +1,17 @@
+{
+  "name": "node-prac",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mizanmahi <mizanmahi24@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "nodemon app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
