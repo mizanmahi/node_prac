@@ -5,11 +5,13 @@
   "author": "mizanmahi <mizanmahi24@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "nodemon app.js"
+    "dev": "set NODE_ENV=development&& nodemon app.js",
+    "build": "set NODE_ENV=production&& nodemon app.js"
   },
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
