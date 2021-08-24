@@ -17,4 +17,24 @@ const todoSchema = mongoose.Schema({
   },
 });
 
+// mongoose instance method
+todoSchema.methods = {
+  findActives: function () {
+    return mongoose.model('todo').find({ status: 'active' });
+  },
+};
+
+todoSchema.statics = {
+  findByWord: function (word) {
+    return this.find({ title: new RegExp(word, 'i') });
+  },
+};
+
+/* todoSchema.query = {
+  ? this is for creating custom query helpers like save find etc.
+  show: function () {
+    return this.find()
+  }
+} */
+
 module.exports = todoSchema;
