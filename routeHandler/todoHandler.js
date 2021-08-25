@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const todoSchema = require('../schemas/todoSchema');
+const authGuard = require('../middleWares/authGuard');
 
 // crating a Todo model (class) by calling mongoose.model class
 const Todo = new mongoose.model('todo', todoSchema);
@@ -9,7 +10,8 @@ const Todo = new mongoose.model('todo', todoSchema);
 const router = express.Router();
 
 // getting all todo
-router.get('/', (req, res) => {
+router.get('/', authGuard, (req, res) => {
+  console.log(req.userName);
   Todo.find({}, (err, arr) => {
     if (!err) {
       res.status(200).json({ message: arr });

@@ -1,9 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const dotenv = require('dotenv');
+
 const todoHandler = require('./routeHandler/todoHandler');
+const userHandler = require('./routeHandler/userHandler');
 
 const app = express();
+dotenv.config();
 app.use(express.json());
 
 // connecting with the mondo via mongoose
@@ -16,7 +20,8 @@ mongoose
   .catch((err) => console.log(err.message));
 
 // application routes
-app.use('/todo', todoHandler)
+app.use('/todo', todoHandler);
+app.use('/user', userHandler);
 
 // error handler middleware funtion
 const errorHandler = (err, req, res, next) => {
@@ -26,5 +31,7 @@ const errorHandler = (err, req, res, next) => {
     res.status(500).json({ error: err });
   }
 };
+
+app.use(errorHandler);
 
 app.listen(3000, () => console.log(`Server is running on 3000`));
