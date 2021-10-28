@@ -5,6 +5,8 @@ const ObjectId = require('mongodb').ObjectId;
 
 require('dotenv').config();
 
+const PORT = process.env.PORT || 5000;
+
 console.log(process.env.MONGO_USER);
 const app = express();
 
@@ -101,4 +103,4 @@ app.put('/users/update/:id', (req, res) => {
    });
 });
 
-app.listen(5000, () => console.log('App is running on port 5000'));
+app.listen(PORT, () => console.log('App is running on port 5000'));
