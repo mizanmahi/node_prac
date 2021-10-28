@@ -22,7 +22,7 @@ const client = new MongoClient(uri, {
 
 //* Home route
 app.get('/', (req, res) => {
-   res.send('<h1>Welcome to the node practice (user management) server</h1>');
+   res.send('<h1>Welcome to the node practice (user management) server!</h1>');
 });
 
 //* Adding an user
